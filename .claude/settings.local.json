@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(dir C:\\\\Users\\\\mygam\\\\Desktop\\\\Projetos\\\\pepweb\\\\pepweb1\\\\app\\\\dashboard *)"
+    ]
+  }
+}
