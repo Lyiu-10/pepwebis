@@ -71,14 +71,12 @@ export default function DashboardPage() {
     <div className="flex h-screen flex-col overflow-hidden" style={{ backgroundColor: "#CDD6E0" }}>
       <Sidebar 
         open={sidebarOpen} 
+        onToggle={() => setSidebarOpen(!sidebarOpen)}
         onClose={() => setSidebarOpen(false)} 
       />
 
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <Navbar
-          sidebarOpen={sidebarOpen}
-          onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
-        />
+      <div className="ml-14 flex flex-1 flex-col overflow-hidden">
+        <Navbar />
 
         <main className="flex-1 overflow-y-auto px-8 py-6" style={{ backgroundColor: "#f0f3f6" }}>
 
@@ -89,12 +87,12 @@ export default function DashboardPage() {
               <p className="mt-0.5 text-sm text-gray-500">Quarta-feira, 6 de Maio de 2026</p>
             </div>
             <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm hover:bg-gray-50">
+              <button className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm transition-all duration-200 hover:bg-gray-50 hover:scale-105 active:scale-95">
                 <CalendarDays size={14} />
                 Últimos 30 Dias
               </button>
               <button
-                className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white shadow-sm"
+                className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:opacity-90 hover:scale-105 active:scale-95"
                 style={{ backgroundColor: "#1565A8" }}
               >
                 <Download size={14} />
@@ -106,7 +104,7 @@ export default function DashboardPage() {
           {/* Stats Cards */}
           <div className="mb-6 grid grid-cols-4 gap-4">
             {stats.map((s) => (
-              <div key={s.label} className="rounded-xl bg-white p-5 shadow-sm">
+              <div key={s.label} className="rounded-xl bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                 <div className="mb-3 flex items-center justify-between">
                   <span className="text-xs text-gray-500">{s.label}</span>
                   <span style={{ color: "#1565A8", opacity: 0.6 }}>{s.icon}</span>
@@ -180,7 +178,7 @@ export default function DashboardPage() {
             <div className="rounded-xl bg-white p-5 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
                 <p className="text-sm font-semibold text-gray-700">Membros ativos recentes</p>
-                <button className="text-xs font-semibold" style={{ color: "#1565A8" }}>
+                <button className="text-xs font-semibold transition-all duration-200 hover:underline hover:scale-105 active:scale-95" style={{ color: "#1565A8" }}>
                   Ver todos
                 </button>
               </div>
@@ -200,7 +198,7 @@ export default function DashboardPage() {
                     </div>
                     <div className="flex shrink-0 items-center gap-1.5">
                       <span className="text-xs text-gray-400">{m.time}</span>
-                      <button className="text-gray-300 hover:text-gray-500">
+                      <button className="text-gray-300 transition-all duration-200 hover:text-gray-500 hover:scale-125 active:scale-90">
                         <MoreHorizontal size={14} />
                       </button>
                     </div>
